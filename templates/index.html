@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Job Scraper</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; background-color: #f4f7f6; }
+        h1 { color: #2c3e50; }
+        form { margin-top: 20px; }
+        input { padding: 10px; width: 300px; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #2980b9; }
+    </style>
+</head>
+<body>
+    <h1>Job Scraper</h1>
+    <p>찾고 싶은 기술 스택을 입력하세요 (Python, Java, Javascript...)</p>
+    <form action="/search" method="get">
+        <input name="keyword" type="text" placeholder="검색어를 입력해 주세요" required>
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ keyword }} 검색 결과</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background-color: #f4f7f6; }
+        h1 { color: #2c3e50; text-align: center; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; }
+        th { background-color: #3498db; color: white; }
+        tr:hover { background-color: #f1f1f1; }
+        .btn-apply { text-decoration: none; color: #3498db; font-weight: bold; }
+        .tag { font-size: 0.8em; padding: 3px 8px; border-radius: 10px; color: white; }
+        .Berlin { background-color: #e67e22; }
+        .Web3 { background-color: #9b59b6; }
+        .WWR { background-color: #27ae60; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>"{{ keyword }}" 검색 결과: {{ jobs|length }}건</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>사이트</th>
+                    <th>포지션</th>
+                    <th>회사</th>
+                    <th>링크</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for job in jobs %}
+                <tr>
+                    <td><span class="tag {{ job.source.split()[0] }}">{{ job.source }}</span></td>
+                    <td>{{ job.title }}</td>
+                    <td>{{ job.company }}</td>
+                    <td><a href="{{ job.link }}" class="btn-apply" target="_blank">지원하기 &rarr;</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="/">홈으로 돌아가기</a>
+        </div>
+    </div>
+</body>
+</html>
